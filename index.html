@@ -43,11 +43,12 @@
       resultBox.innerHTML = 'Fetching...';
 
       try {
-        const res = await fetch("https://your-render-url.onrender.com/fetch_insights", {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ website_url: url })
+        const res = await fetch("http://localhost:8000/fetch_insights", {
+          method: "POST",                   // ✅ important
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ website_url: url }) // ✅ required for POST
         });
+
 
         const data = await res.json();
         if (!res.ok) {
