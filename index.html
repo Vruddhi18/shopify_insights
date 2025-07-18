@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopify Insights Fetcher</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #f6f6f6;
+    }
+    h1 {
+      color: #222;
+    }
+    input, button {
+      padding: 0.5rem;
+      font-size: 1rem;
+      margin-right: 1rem;
+    }
+    .result {
+      margin-top: 2rem;
+      white-space: pre-wrap;
+      background: #fff;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      max-height: 500px;
+      overflow-y: scroll;
+    }
+  </style>
+</head>
+<body>
+  <h1>Shopify Insights Fetcher</h1>
+  <input type="text" id="urlInput" placeholder="Enter Shopify store URL" size="40" />
+  <button onclick="fetchInsights()">Fetch</button>
+
+  <div class="result" id="resultBox"></div>
+
+  <script>
+    async function fetchInsights() {
+      const url = document.getElementById('urlInput').value;
+      const resultBox = document.getElementById('resultBox');
+      resultBox.innerHTML = 'Fetching...';
+
+      try {
+        const res = await fetch("https://your-render-url.onrender.com/fetch_insights", {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ website_url: url })
+        });
+
+        const data = await res.json();
+        if (!res.ok) {
+          resultBox.innerText = `❌ Error (${res.status}): ${data.detail}`;
+        } else {
+          resultBox.innerText = JSON.stringify(data, null, 2);
+        }
+      } catch (e) {
+        resultBox.innerText = `❌ Exception: ${e.message}`;
+      }
+    }
+  </script>
+</body>
+</html>
