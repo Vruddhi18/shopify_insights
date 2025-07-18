@@ -43,7 +43,7 @@
       resultBox.innerHTML = 'Fetching...';
 
       try {
-        const res = await fetch("http://localhost:8000/fetch_insights", {
+        const res = await fetch("https://shopify-insights.onrender.com/fetch_insights", {
           method: "POST",                   // ✅ important
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ website_url: url }) // ✅ required for POST
