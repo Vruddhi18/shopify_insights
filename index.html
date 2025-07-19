@@ -44,20 +44,20 @@
 
       try {
         const res = await fetch("https://shopify-insights.onrender.com/fetch_insights", {
-          method: "POST",                   // ✅ important
+          method: "POST",                   //  important
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ website_url: url }) // ✅ required for POST
+          body: JSON.stringify({ website_url: url }) //  required for POST
         });
 
 
         const data = await res.json();
         if (!res.ok) {
-          resultBox.innerText = `❌ Error (${res.status}): ${data.detail}`;
+          resultBox.innerText = ` Error (${res.status}): ${data.detail}`;
         } else {
           resultBox.innerText = JSON.stringify(data, null, 2);
         }
       } catch (e) {
-        resultBox.innerText = `❌ Exception: ${e.message}`;
+        resultBox.innerText = ` Exception: ${e.message}`;
       }
     }
   </script>
