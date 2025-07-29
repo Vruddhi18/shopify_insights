@@ -24,22 +24,19 @@ This project is a full-stack web application built with **FastAPI** (backend) an
 ## 📁 Project Structure
 
 ```
-shopify-insight-scraper/
+shopify_insights/
 ├── app/
-│   ├── __init__.py
-│   ├── main.py               # FastAPI app
-│   ├── scraper.py            # Scraping logic
-│   ├── constants.py          # Headers, path constants
-│   ├── models.py             # Pydantic schemas
-│   ├── utils.py              # Helper functions
-│   └── templates/
-│       └── index.html        # Frontend UI
-├── static/
-│   └── script.js             # JavaScript for frontend
-├── run.py                    # Entry point for Render
-├── requirements.txt
-├── README.md
-└── .render.yaml              # Render deployment config
+│ ├── constants.py # Request headers and base URLs
+│ ├── main.py # FastAPI app setup
+│ ├── models.py # Pydantic schemas for input/output
+│ ├── routes.py # API routing logic
+│ ├── scraper.py # Core scraping engine
+│ └── utils.py # Helper functions
+├── index.html # Frontend interface (HTML + JS)
+├── run.py # Entry point for local & cloud deployment
+├── requirements.txt # Python dependencies
+├── .gitignore 
+└── README.md 
 ```
 
 ---
