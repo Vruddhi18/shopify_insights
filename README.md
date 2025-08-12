@@ -80,12 +80,5 @@ Visit `http://127.0.0.1:8000` in your browser.
 * All project files above
 * Ensure `run.py` is set as an entry point
 
----
 
-## ❓ How to Use
-
-1. Visit the hosted frontend UI
-2. Enter a full Shopify website URL (e.g. `https://luxyskincare.in`)
-3. Click **Fetch Insights**
-4. Wait for 3-5 seconds for the results to appear
 
